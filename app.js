@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 require('dotenv/config')
 const employeeRoute = require('./routes/employee')
 
-app.use('/', employeeRoute)
+app.use('/api/employees', employeeRoute)
 
 mongoose.connect(process.env.DB_CONNECTION)
 let db = mongoose.connection
