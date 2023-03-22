@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h5>Employee List</h5>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between pb-2 m2-4">
+                <button class="btn btn-success" type="button" routerLink="/add">New Employee</button>
+            </div>
+    
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="200" class="text-center">Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Department</th>
+                        <th width="200" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees; let i = index">
+                        <td class="text-center">{{ employee._id }}</td>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.department }}</td>
+                        <td class="text-center">
+                            <a class="btn btn-warning mr-2" routerLink="/employees/{{ employee._id }}">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
