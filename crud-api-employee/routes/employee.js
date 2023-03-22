@@ -42,4 +42,18 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+// update employee by id
+router.put('/:id', async (req, res) => {
+    try {
+        const data = await Employee.updateOne({_id: req.params.id}, {
+            _id: req.body.id,
+            name: req.body.name,
+            department: req.body.department
+        })
+        res.json(data)
+    } catch (error) {
+        res.json({message:error})
+    }
+})
+
 module.exports = router
