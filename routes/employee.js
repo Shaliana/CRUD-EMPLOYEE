@@ -16,4 +16,20 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Add New Employee
+router.post('/', async (req, res) => {
+    const employeePost = new Employee({
+        _id: req.body.id,
+        name: req.body.name,
+        department: req.body.department
+    })
+
+    try {
+        const data = await employeePost.save()
+        res.json(data)
+    } catch (error) {
+        res.json({message:error})
+    }
+})
+
 module.exports = router

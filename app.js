@@ -3,6 +3,12 @@ const app = express()
 const mongoose = require('mongoose')
 require('dotenv/config')
 const employeeRoute = require('./routes/employee')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+app.use(bodyParser.json())
 
 app.use('/api/employees', employeeRoute)
 
