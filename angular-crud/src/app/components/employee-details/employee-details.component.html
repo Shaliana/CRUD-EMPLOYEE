@@ -1,64 +1,67 @@
-<div class="container">
-    <div class="d-flex mt-5 justify-content-center">
-        <div class="card col-md-6">
-            <div class="card-body">
-                <div class="d-flex justify-content-between pb-2 mb-4">
-                    <h5 class="card-title">Edit Employee</h5>
-                    <div>
-                        <a class="btn btn-secondary" routerLink="/employees">Back</a>
-                    </div>
-                </div>
-    
+<div class="d-flex mt-5 justify-content-center">
+    <div class="card col-md-6">
+        <div class="card-body">
+            <div class="d-flex justify-content-between pb-2 mb-4">
+                <h5 class="card-title">Edit Employee</h5>
                 <div>
-                    <div class="form-group mb-2">
-                        <label for="_id">Employee ID</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="_id"
-                          [(ngModel)]="currentEmployee._id"
-                          name="_id"
-                        />
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="name">Employee Name</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="name"
-                          [(ngModel)]="currentEmployee.name"
-                          name="name"
-                        />
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="department">Department</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="department"
-                          [(ngModel)]="currentEmployee.department"
-                          name="department"
-                        />
-                    </div>
-    
-                    <div class="d-flex justify-content-between pb-2">
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                            (click)="updateEmployee()"
-                        >
-                            Update
-                        </button>
-    
-                        <button class="btn btn-danger" (click)="deleteEmployee()">
-                            Delete
-                        </button>
-                    </div>
-                    
-                    <p>{{ message }}</p>
+                    <a class="btn btn-secondary" routerLink="/employees">Back</a>
                 </div>
+            </div>
+
+            <div *ngIf="message">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+
+            <div *ngIf="currentEmployee">
+                <div class="form-group mb-2">
+                    <label for="_id">Employee ID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="currentEmployee._id"
+                      readonly
+                      disabled
+                    />
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">Employee Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      [(ngModel)]="currentEmployee.name"
+                      name="name"
+                    />
+                </div>
+                <div class="form-group mb-2">
+                    <label for="department">Department</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="department"
+                      [(ngModel)]="currentEmployee.department"
+                      name="department"
+                    />
+                </div>
+
+                <div class="d-flex justify-content-between pb-2">
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        (click)="updateEmployee()"
+                    >
+                        Update
+                    </button>
+
+                    <button class="btn btn-danger" (click)="deleteEmployee()">
+                        Delete
+                    </button>
+                </div>
+                
             </div>
         </div>
     </div>
-    
 </div>
