@@ -4,6 +4,13 @@ const mongoose = require('mongoose')
 require('dotenv/config')
 const employeeRoute = require('./routes/employee')
 const bodyParser = require('body-parser')
+const cors = require("cors");
+
+var corsOptions = {
+    origin: "http://localhost:4200"
+};
+
+app.use(cors(corsOptions))
 
 app.use(bodyParser.urlencoded({
     extended: true
