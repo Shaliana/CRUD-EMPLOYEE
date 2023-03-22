@@ -32,4 +32,14 @@ router.post('/', async (req, res) => {
     }
 })
 
+// get one employee
+router.get('/:id', async (req, res) => {
+    try {
+        const data = await Employee.findById(req.params.id)
+        res.json(data)
+    } catch (error) {
+        res.json({message:error})
+    }
+})
+
 module.exports = router
