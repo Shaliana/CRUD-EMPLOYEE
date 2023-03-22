@@ -56,4 +56,14 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// delete by id
+router.delete('/:id', async (req, res) => {
+    try {
+        const data = await Employee.deleteOne({_id:req.params.id})
+        res.json(data)
+    } catch (error) {
+        res.json({message:error})
+    }
+})
+
 module.exports = router
