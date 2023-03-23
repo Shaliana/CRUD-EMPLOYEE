@@ -46,7 +46,6 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const data = await Employee.updateOne({_id: req.params.id}, {
-            _id: req.body.id,
             name: req.body.name,
             department: req.body.department
         })
