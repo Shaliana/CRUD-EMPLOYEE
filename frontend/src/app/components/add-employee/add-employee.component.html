@@ -1,0 +1,58 @@
+<div class="d-flex mt-5 justify-content-center">
+  <div class="card col-md-6">
+    <div class="card-body">
+        <div class="d-flex justify-content-between pb-2 mb-4">
+            <h5 class="card-title">Add Employee</h5>
+            <div>
+              <a class="btn btn-secondary" routerLink="/employees">Back</a>
+            </div>
+        </div>
+
+        <div>
+          <div *ngIf="!submitted">
+            <div class="form-group mb-2">
+                <label for="_id">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="_id"
+                  required
+                  [(ngModel)]="employee._id"
+                  name="_id"
+                />
+            </div>
+    
+            <div class="form-group mb-2">
+              <label for="name">Employee Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                required
+                [(ngModel)]="employee.name"
+                name="name"
+              />
+            </div>
+      
+            <div class="form-group mb-2">
+              <label for="department">Department</label>
+              <input
+                class="form-control"
+                id="department"
+                required
+                [(ngModel)]="employee.department"
+                name="department"
+              />
+            </div>
+      
+            <button (click)="saveEmployee()" class="btn btn-primary">Submit</button>
+          </div>
+      
+          <div *ngIf="submitted">
+            <h4>You submitted successfully!</h4>
+            <button class="btn btn-primary" (click)="newEmployee()">Add New Employee</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
